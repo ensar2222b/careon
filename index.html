@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Careon">
+  <meta name="description" content="Careon hilft bei der Jobsuche: passende Rollen, Lebenslauf-Hinweise, Anschreiben-Entwurf und Interviewübung – direkt im Browser, ohne Konto.">
+  <title>Careon – Assistent für die Jobsuche</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/glass.css">
+</head>
+<body>
+  <a class="skip-link" href="#chat">Zum Assistenten springen</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="./" aria-label="Careon, zur Startseite">
+        <img src="assets/careon-logo.svg" alt="" width="160" height="32">
+      </a>
+      <nav class="nav" aria-label="Seitenbereiche">
+        <a class="nav-hide" href="#funktionen">Funktionen</a>
+        <a class="nav-hide" href="#ablauf">Ablauf</a>
+        <a class="nav-hide" href="#chat">Assistent</a>
+        <a class="nav-hide" href="#hinweise">Hinweise</a>
+        <a class="btn btn-primary nav-chat" href="#chat" data-open-chat>Assistent</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="install-banner" id="install-banner" hidden>
+    <p>
+      <strong>Careon auf dem iPhone.</strong>
+      Im Teilen-Menü von Safari „Zum Home-Bildschirm“ wählen, um die Seite als App zu nutzen.
+    </p>
+    <button type="button" id="install-dismiss" aria-label="Hinweis schließen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title" data-testid="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker">Jobsuche im Browser</p>
+          <h1 id="hero-title">Klarheit für den nächsten Bewerbungsschritt.</h1>
+          <p class="lede">
+            Der Careon-Assistent fragt nach Erfahrung und Ziel, schlägt passende Rollen vor und hilft bei Lebenslauf, Anschreiben und Gesprächsvorbereitung. Alles bleibt auf deinem Gerät – ohne Konto und ohne Anmeldung.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#chat" data-open-chat>
+              Assistent öffnen
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#ablauf">So arbeitet Careon</a>
+          </div>
+          <ul class="hero-notes">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Daten bleiben lokal
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6" stroke-linecap="round"/></svg>
+              Viele Berufsfelder
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" stroke-linecap="round"/></svg>
+              Links zu echten Jobbörsen
+            </li>
+          </ul>
+        </div>
+        <div>
+          <aside class="hero-panel" aria-hidden="true">
+            <div class="hero-panel-head">
+              <img src="icons/icon-192.png" alt="">
+              <div>
+                <strong>Careon-Assistent</strong>
+                <span>Beispielverlauf</span>
+              </div>
+            </div>
+            <p class="sample-msg">In welchem Bereich möchtest du suchen? Du kannst ein Feld wählen oder frei beschreiben.</p>
+            <p class="sample-msg user">UX-Design, vier Jahre, Schwerpunkt Research, Berlin, hybrid</p>
+            <p class="sample-msg">Dazu passen unter anderem UX Researcher und Product Designer. Ich habe einen Anschreiben-Entwurf und Suchlinks vorbereitet.</p>
+            <div class="sample-chips">
+              <span class="sample-chip">Lebenslauf-Tipps</span>
+              <span class="sample-chip">Anschreiben</span>
+              <span class="sample-chip">Interview üben</span>
+            </div>
+          </aside>
+          <p class="hero-caption">Illustrierter Ablauf, kein Kundenbeispiel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="funktionen" aria-labelledby="features-title">
+      <div class="wrap">
+        <p class="section-kicker">Funktionen</p>
+        <h2 class="section-title" id="features-title">Was der Assistent konkret liefert.</h2>
+        <p class="section-lead">Kein Konto, keine Warteschlange. Du bekommst nach ein paar Angaben eine Einschätzung und Texte, an denen du weiterarbeiten kannst.</p>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Passende Rollen</h3>
+            <p>Auf Basis von Feld, Kenntnissen und Erfahrung schlägt Careon Jobtitel mit einer groben Passung vor.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Anschreiben-Entwurf</h3>
+            <p>Ein kurzes, formelles Anschreiben zum Kopieren – als Ausgangstext, nicht als fertige Bewerbung.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Interviewübung</h3>
+            <p>Typische Fragen zum gewählten Feld, plus Hinweise zu Struktur und der STAR-Methode.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l1.41-1.41a5 5 0 0 0-7.07-7.07L10 5.93" stroke-linecap="round"/><path d="M14 11a5 5 0 0 0-7.07 0L5.52 12.41a5 5 0 0 0 7.07 7.07L14 18.07" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Suche auf Jobbörsen</h3>
+            <p>Direktlinks zu StepStone, Indeed, LinkedIn Jobs und der Jobbörse der Bundesagentur für Arbeit.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Lokal im Browser</h3>
+            <p>Eingaben werden nicht an einen Server geschickt. Der Assistent arbeitet regelbasiert auf dem Gerät.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Viele Berufsfelder</h3>
+            <p>Von IT über Pflege und Handwerk bis Verwaltung: Du kannst ein Feld wählen oder frei formulieren.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ablauf" aria-labelledby="steps-title">
+      <div class="wrap">
+        <p class="section-kicker">Ablauf</p>
+        <h2 class="section-title" id="steps-title">Drei Schritte, dann kannst du weitermachen.</h2>
+        <p class="section-lead">Der Assistent führt das Gespräch. Du kannst jederzeit tippen oder eine der vorgeschlagenen Antworten wählen.</p>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Profil kurz umreißen</h3>
+            <p>Berufsfeld, Kenntnisse, Erfahrung, Ort und ob du vor Ort, hybrid oder remote arbeiten möchtest.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Rollen ansehen</h3>
+            <p>Careon ordnet deine Angaben einem Feld zu und zeigt passende Titel mit einer Orientierung zur Passung.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Texte und Suche nutzen</h3>
+            <p>Lebenslauf-Tipps, Anschreiben-Entwurf, Interviewfragen und vorbereitete Suchlinks zu den großen Jobbörsen.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section chat-section" id="chat" aria-labelledby="chat-title" data-testid="chat-section">
+      <div class="wrap">
+        <p class="section-kicker">Assistent</p>
+        <h2 class="section-title" id="chat-title">Mit Careon sprechen.</h2>
+        <p class="section-lead">Beschreibe dein Profil in deinen Worten. Der Assistent stellt Rückfragen und macht dann konkrete Vorschläge.</p>
+
+        <div class="chat-mobile-cta">
+          <h2>Careon-Assistent</h2>
+          <p>Im Vollbild bleibt das Eingabefeld auch bei geöffneter Tastatur erreichbar.</p>
+          <button class="btn btn-primary" type="button" data-open-chat data-testid="open-chat">Gespräch starten</button>
+        </div>
+
+        <div class="chat-shell" id="chat-dock">
+          <div class="chat-app" id="chat-app" data-testid="chat-app" data-chat-idle="false">
+            <div class="chat-topbar">
+              <img src="icons/icon-192.png" alt="">
+              <div>
+                <strong>Careon-Assistent</strong>
+                <span class="chat-status">Bereit, im Browser</span>
+              </div>
+              <span class="progress" id="chat-progress" hidden></span>
+            </div>
+            <div class="progress-bar" id="chat-progress-bar" hidden><span></span></div>
+            <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+            <form class="identity-form" id="identity-form" autocomplete="on">
+              <div class="identity-grid">
+                <div>
+                  <label for="field-name">Name</label>
+                  <input id="field-name" name="name" type="text" autocomplete="name" placeholder="Vollständiger Name" maxlength="80" spellcheck="false">
+                </div>
+                <div>
+                  <label for="field-email">E-Mail</label>
+                  <input id="field-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@beispiel.de" maxlength="120" spellcheck="false">
+                </div>
+                <div>
+                  <label for="field-city">Stadt</label>
+                  <input id="field-city" name="city" type="text" autocomplete="address-level2" placeholder="z. B. Berlin" maxlength="80">
+                </div>
+                <div>
+                  <label for="field-title">Zielposition</label>
+                  <input id="field-title" name="organization-title" type="text" autocomplete="organization-title" placeholder="z. B. Product Designer" maxlength="80">
+                </div>
+              </div>
+            </form>
+            <div class="paste-panel" id="paste-panel" hidden>
+              <p>Lebenslauf oder Stellenanzeige hier einfügen, falls der direkte Zugriff auf die Zwischenablage nicht möglich ist.</p>
+              <label class="sr-only" for="paste-fallback">Text zum Einfügen</label>
+              <textarea id="paste-fallback" maxlength="20000" placeholder="Text einfügen"></textarea>
+              <div class="copy-row">
+                <button class="btn btn-primary" type="button" id="paste-apply">Text übernehmen</button>
+                <button class="btn btn-ghost" type="button" id="paste-cancel">Abbrechen</button>
+              </div>
+            </div>
+            <form class="chat-composer" id="chat-form" autocomplete="off">
+              <div class="composer-actions">
+                <button class="icon-btn" type="button" id="paste-btn" aria-label="Lebenslauf oder Stellenanzeige aus der Zwischenablage einfügen" title="Einfügen">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h8" stroke-linecap="round"/></svg>
+                </button>
+                <label class="sr-only" for="chat-input">Nachricht an den Careon-Assistenten</label>
+                <div class="composer-field">
+                  <input id="chat-input" name="message" type="text" maxlength="2000" placeholder="Antwort eingeben" enterkeyhint="send" autocomplete="off" autocapitalize="sentences">
+                </div>
+                <button class="send-btn" type="submit" id="chat-send" aria-label="Nachricht senden">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <p class="privacy-note">Eingaben bleiben auf deinem Gerät. Der Gesprächsstand wird in diesem Browser gespeichert, bis du eine neue Suche startest. Vorschläge und Gehaltsspannen sind eine Orientierung, keine Zusage.</p>
+      </div>
+    </section>
+
+    <section class="section privacy" id="hinweise" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <p class="section-kicker">Hinweise</p>
+        <h2 class="section-title" id="privacy-title">Wie Careon arbeitet.</h2>
+        <p>Der Assistent nutzt fest hinterlegte Regeln und Stichworte, keinen externen KI-Dienst und keinen Account. Es werden keine Bewerbungsdaten übertragen. Texte solltest du vor dem Absenden an die Stelle anpassen. Gehaltsangaben sind ungefähre Orientierungswerte für den deutschen Markt und hängen stark von Region, Tarif und Seniorität ab.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Careon. Assistent für die Jobsuche – läuft vollständig im Browser.</p>
+      <p><a href="#hinweise">Hinweise zur Arbeitsweise</a></p>
+    </div>
+  </footer>
+
+  <div class="chat-overlay" id="chat-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="overlay-title">
+    <div class="overlay-header">
+      <h2 id="overlay-title">Careon-Assistent</h2>
+      <button class="close-overlay" type="button" id="close-overlay" aria-label="Assistent schließen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="overlay-body" id="overlay-body"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

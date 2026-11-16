@@ -1,0 +1,29 @@
+name: Deploy Careon
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode binary assets
+        run: |
+          find _bin -name '*.b64' | while read f; do
+            out="${f#_bin/}"; out="${out%.b64}"
+            mkdir -p "$(dirname "$out")"
+            base64 -d "$f" > "$out"
+          done
+          rm -rf _bin
+          touch .nojekyll
+      - name: Publish to gh-pages
+        run: |
+          git config user.name "careon-bot"
+          git config user.email "careon-bot@users.noreply.github.com"
+          git checkout --orphan gh-pages
+          git add -A
+          git commit -m "Deploy Careon"
+          git push -f origin gh-pages
